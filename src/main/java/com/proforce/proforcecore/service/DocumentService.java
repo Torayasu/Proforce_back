@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.print.Doc;
-import java.net.DatagramPacket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,18 +19,19 @@ public class DocumentService {
     @Autowired
     private DocumentRepository documentRepository;
 
-    public void createEmptyDoc() {
+    public Document createEmptyDoc() {
         Pdf tmpPdf = new Pdf();
         List<Part> partList = new ArrayList<>();
-        Document newDoc = new Document("","","",partList,tmpPdf);
+        Document newDoc = new Document("","","",tmpPdf);
+        return documentRepository.save(newDoc);
+
     }
 
-    public void createDocFromObject(Document document) {
-        documentRepository.save(document);
+    public Document createDocFromObject(Document document) {
+        return documentRepository.save(document);
     }
 
-    public void updateDoc(Document document) {
-
+    public void updateDocument(Document document) {
         Optional<Document> docToBeUpdated = documentRepository.findById(document.getId());
 
         if (docToBeUpdated.isPresent()) {
@@ -40,6 +40,7 @@ public class DocumentService {
             throw new DocumentNotFound();
         }
     }
+
 
     public void deleteDoc(Long docId) {
         Optional<Document> docToBeDeleted = documentRepository.findById(docId);

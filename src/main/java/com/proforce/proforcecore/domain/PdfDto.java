@@ -13,4 +13,8 @@ public class PdfDto {
     public PdfDto(String url) {
         this.url = url;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

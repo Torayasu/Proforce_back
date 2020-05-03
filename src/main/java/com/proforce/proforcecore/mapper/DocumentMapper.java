@@ -20,28 +20,24 @@ public class DocumentMapper {
     private PdfMapper pdfMapper;
 
     public Document mapToDocument(DocumentDto documentDto) {
-        Document documentToBeReturned = new Document(documentDto.getName()
-                                                    ,documentDto.getManufacturer()
-                                                    ,documentDto.getType()
-                                                    ,new ArrayList<>()
-                                                    ,new Pdf());
 
-        documentDto.getParts().stream().map(partDto -> partMapper.mapToPart(partDto)).forEach(documentToBeReturned::addPart);
+        Document docToBeReturned =  new Document( documentDto.getName()
+                            ,documentDto.getManufacturer()
+                            ,documentDto.getType()
+                            ,pdfMapper.mapToPdf(documentDto.getPdf()));
 
-        return documentToBeReturned;
-
+        docToBeReturned.setId(documentDto.getId());
+        return docToBeReturned;
     }
 
     public DocumentDto mapToDocumentDto(Document document) {
-        DocumentDto documentDtoToBeReturned = new DocumentDto(  document.getName()
-                                                                ,document.getManufacturer()
-                                                                ,document.getType());
+        DocumentDto docDtoToBeReturned =  new DocumentDto(  document.getName()
+                                ,document.getManufacturer()
+                                ,document.getType()
+                                ,pdfMapper.mapToPdfDto(document.getPdf()));
 
-        documentDtoToBeReturned.setPdf(pdfMapper.mapToPdfDto(document.getPdf()));
-
-        document.getParts().stream().map(part -> partMapper.mapToPartDto(part)).forEach(documentDtoToBeReturned::addPart);
-
-        return documentDtoToBeReturned;
+        docDtoToBeReturned.setId(document.getId());
+        return docDtoToBeReturned;
     }
 
     public List<DocumentDto> mapToDocumentDtoList(List<Document> documentList) {

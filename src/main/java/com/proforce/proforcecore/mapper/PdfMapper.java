@@ -10,14 +10,17 @@ public class PdfMapper {
     public Pdf mapToPdf(PdfDto pdfDto) {
 
         Pdf pdfToBeReturned = new Pdf(pdfDto.getUrl());
-
+        pdfToBeReturned.setId(pdfDto.getId());
         return pdfToBeReturned;
 
 
     }
 
     public PdfDto mapToPdfDto(Pdf pdf) {
-        return new PdfDto(pdf.getUrl());
+
+        PdfDto pdfDtoToBeReturned = new PdfDto(pdf.getUrl());
+        pdfDtoToBeReturned.setId(pdf.getId());
+        return pdfDtoToBeReturned;
     }
 
 }

@@ -27,6 +27,10 @@ public class PartDto {
         this.docs = new ArrayList<>();
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setDocs(List<DocumentDto> docs) {
         this.docs = docs;
     }

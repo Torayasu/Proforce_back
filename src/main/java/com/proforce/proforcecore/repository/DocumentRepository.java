@@ -14,19 +14,21 @@ import java.util.Optional;
 public interface DocumentRepository extends CrudRepository<Document, Long> {
 
     @Override
-    Document save(Document document);
-
-    @Override
     List<Document> findAll();
+
+    List<Document> findAllByType(String type);
+    List<Document> findAllByManufacturer(String type);
+    List<Document> findAllByName(String name);
 
     @Override
     Optional<Document> findById(Long id);
 
     @Override
+    Document save(Document document);
+
+    @Override
     void deleteById(Long id);
 
-    List<Document> findAllByType(String type);
-    List<Document> findAllByManufacturer(String type);
-    List<Document> findAllByName(String name);
+
 
 }

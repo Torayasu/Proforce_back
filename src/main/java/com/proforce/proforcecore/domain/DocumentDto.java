@@ -26,6 +26,10 @@ public class DocumentDto {
         this.pdf = pdfDto;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setPdf(PdfDto pdfDto) {
         this.pdf = pdfDto;
     }

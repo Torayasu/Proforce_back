@@ -45,6 +45,10 @@ public class Document {
         this.pdf = pdf;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setPdf(Pdf pdf) {
         this.pdf = pdf;
     }

@@ -72,8 +72,12 @@ public class Part {
         this.docs = docs;
     }
 
-    public void addDocument(Document document) {
+    public void addDoc(Document document) {
         this.docs.add(document);
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setDocs(List<Document> docs) {
