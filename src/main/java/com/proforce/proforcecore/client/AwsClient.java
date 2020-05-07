@@ -49,11 +49,11 @@ public class AwsClient {
         HttpHeaders headers = new HttpHeaders();
 
         headers.add("Authorization", "AWS4-HMAC-SHA256" +
-                " Credential=AKIAQ2CROYAYWWTMX5AS/20200506/us-east-1/s3/aws4_request, " +
+                " Credential=....../20200506/us-east-1/s3/aws4_request, " +
                 "SignedHeaders=host;x-amz-content-sha256;x-amz-date, " +
                 "Signature=" +
                 signatureCalculator.getSignature(
-                        signatureCalculator.getSigningKey("fyEyO/1wbzzW4Ln0lAQvuUuE9ZMfWaikCUaofwGc"),
+                        signatureCalculator.getSigningKey(""),
                         signatureCalculator.getStringToSign()));
         headers.add("x-amz-content-sha256", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
         headers.add("X-Amz-Date",dateStringBuilder.getDateTimeString());
