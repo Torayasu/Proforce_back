@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.print.Doc;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +23,7 @@ public class DocumentService {
     public Document createEmptyDoc() {
         Pdf tmpPdf = new Pdf();
         List<Part> partList = new ArrayList<>();
-        Document newDoc = new Document("","","",tmpPdf);
+        Document newDoc = new Document("","","", LocalDate.now().plusYears(999),tmpPdf);
         return documentRepository.save(newDoc);
 
     }

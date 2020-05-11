@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,14 +35,17 @@ public class Document {
 
     private String type;
 
+    private LocalDate expiryDate;
+
     @OneToOne(fetch = FetchType.EAGER,
     cascade = CascadeType.ALL)
     private Pdf pdf;
 
-    public Document(String name, String manufacturer, String type, Pdf pdf) {
+    public Document(String name, String manufacturer, String type, LocalDate expiryDate, Pdf pdf) {
         this.name = name;
         this.manufacturer = manufacturer;
         this.type = type;
+        this.expiryDate = expiryDate;
         this.pdf = pdf;
     }
 

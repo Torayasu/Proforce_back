@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -27,7 +28,7 @@ public class DocumentRepositoryTestSuite {
 
         Pdf pdfHandler = new Pdf("http://www.test.com");
 
-        Document testDoc = new Document("CoC ATEX", "P+F", Document.TYPE_COC, pdfHandler);
+        Document testDoc = new Document("CoC ATEX", "P+F", Document.TYPE_COC, LocalDate.now().plusYears(999), pdfHandler);
 
         documentRepository.save(testDoc);
 

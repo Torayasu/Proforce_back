@@ -2,6 +2,7 @@ package com.proforce.proforcecore.domain;
 
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +14,18 @@ public class DocumentDto {
     private String name;
     private String manufacturer;
     private String type;
+    private LocalDate expiryDate;
 
     private PdfDto pdf;
 
     public DocumentDto() {
     }
 
-    public DocumentDto(String name, String manufacturer, String type, PdfDto pdfDto) {
+    public DocumentDto(String name, String manufacturer, String type, LocalDate expiryDate, PdfDto pdfDto) {
         this.name = name;
         this.manufacturer = manufacturer;
         this.type = type;
+        this.expiryDate = expiryDate;
         this.pdf = pdfDto;
     }
 

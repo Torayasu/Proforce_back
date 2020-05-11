@@ -24,6 +24,7 @@ public class DocumentMapper {
         Document docToBeReturned =  new Document( documentDto.getName()
                             ,documentDto.getManufacturer()
                             ,documentDto.getType()
+                            ,documentDto.getExpiryDate()
                             ,pdfMapper.mapToPdf(documentDto.getPdf()));
 
         docToBeReturned.setId(documentDto.getId());
@@ -34,6 +35,7 @@ public class DocumentMapper {
         DocumentDto docDtoToBeReturned =  new DocumentDto(  document.getName()
                                 ,document.getManufacturer()
                                 ,document.getType()
+                                ,document.getExpiryDate()
                                 ,pdfMapper.mapToPdfDto(document.getPdf()));
 
         docDtoToBeReturned.setId(document.getId());

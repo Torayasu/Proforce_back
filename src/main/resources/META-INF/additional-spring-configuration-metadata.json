@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "todoly.password",
+      "type": "java.lang.String",
+      "description": "Description for todoly.password."
+  }
+] }

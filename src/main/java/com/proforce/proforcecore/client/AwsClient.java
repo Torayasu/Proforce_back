@@ -1,9 +1,7 @@
 package com.proforce.proforcecore.client;
 
-import com.proforce.proforcecore.config.AwsConfig;
 import com.proforce.proforcecore.service.AwsDateStringBuilder;
 import com.proforce.proforcecore.service.SignatureCalculator;
-import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,20 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
-import software.amazon.awssdk.auth.credentials.AwsCredentials;
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
-import software.amazon.awssdk.auth.signer.Aws4Signer;
-import software.amazon.awssdk.auth.signer.params.Aws4SignerParams;
-import software.amazon.awssdk.http.SdkHttpFullRequest;
 import software.amazon.awssdk.services.s3.model.Bucket;
 
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +24,6 @@ public class AwsClient {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
-    private AwsConfig awsConfig;
 
     @Autowired
     private SignatureCalculator signatureCalculator;
@@ -69,4 +56,4 @@ public class AwsClient {
         return new ArrayList<>();
     }
 
-}v
+}
