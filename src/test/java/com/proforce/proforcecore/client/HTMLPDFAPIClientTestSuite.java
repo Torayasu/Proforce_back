@@ -1,5 +1,6 @@
 package com.proforce.proforcecore.client;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +9,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class PDFOtterClientTestSuite {
+public class HTMLPDFAPIClientTestSuite {
 
     @Autowired
-    private PDFOtterClient pdfOtterClient;
+    private HTMLAPIClient pdfOtterClient;
 
     @Test
     public void testGetAllTemplates() {
 
-        ResponseEntity<String> result = pdfOtterClient.getAllTemplates();
+        ResponseEntity<String> result = pdfOtterClient.getCredits();
 
         System.out.println(result);
 
@@ -28,11 +33,17 @@ public class PDFOtterClientTestSuite {
     }
 
     @Test
-    public void testFillInATemplate() {
+    public void testGetPdfFromHtml() throws IOException {
 
-        ResponseEntity<String> result = pdfOtterClient.fillInATemplate();
+        ResponseEntity<String> result = pdfOtterClient.getPdfFromHtml("ATEX", "ABB", "CoC", "2022-11-21");
 
-        System.out.println(result);
+        byte[] binaryPdf= result.getBody().getBytes();
+
+        DataOutputStream outputStream = new DataOutputStream(new FileOutputStream("filledIn.pdf"));
+
+        outputStream.write(binaryPdf);
+
+        outputStream.close();
 
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }
