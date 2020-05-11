@@ -24,32 +24,32 @@ public class PartController {
     private PartMapper partMapper;
 
     @RequestMapping(method = RequestMethod.POST, value="/part")
-    private PartDto createEmptyPart() {
+    public PartDto createEmptyPart() {
         return partMapper.mapToPartDto(partService.createEmptyPart());
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/part", consumes = APPLICATION_JSON_VALUE)
-    private PartDto createPart(@RequestBody PartDto partDto) {
+    public PartDto createPart(@RequestBody PartDto partDto) {
         return partMapper.mapToPartDto(partService.createPartFromObject(partMapper.mapToPart(partDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/part")
-    private List<PartDto> getAllParts() {
+    public List<PartDto> getAllParts() {
         return partMapper.mapToPartDtoList(partService.getAllParts());
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/part/{partId}")
-    private void deletePart(@PathVariable Long partId) throws PartNotFound {
+    public void deletePart(@PathVariable Long partId) throws PartNotFound {
         partService.deletePart(partId);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/part")
-    private PartDto updatePart(@RequestBody PartDto partDto) throws PartNotFound {
+    public PartDto updatePart(@RequestBody PartDto partDto) throws PartNotFound {
         return partMapper.mapToPartDto(partService.updatePart(partMapper.mapToPart(partDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/part/{type}")
-    private List<PartDto> getPartsByType(@PathVariable String type) {
+    public List<PartDto> getPartsByType(@PathVariable String type) {
         return partMapper.mapToPartDtoList(partService.getAllPartsByType(type));
     }
 

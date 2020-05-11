@@ -1,6 +1,6 @@
 package com.proforce.proforcecore.repository;
 
-import com.proforce.proforcecore.domain.Pdf;
+import com.proforce.proforcecore.scheduler.EventLog;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,14 +8,14 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
 @Repository
-public interface PDFRepository extends CrudRepository<Pdf, Long> {
+@Transactional
+public interface EventLogRepository extends CrudRepository<EventLog, Long> {
 
     @Override
-    List<Pdf> findAll();
+    List<EventLog> findAll();
 
     @Override
-    Optional<Pdf> findById(Long id);
+    Optional<EventLog> findById(Long id);
 
 }

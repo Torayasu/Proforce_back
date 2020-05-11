@@ -23,17 +23,17 @@ public class DocumentController {
     private DocumentMapper documentMapper;
 
     @RequestMapping(method = RequestMethod.POST, value="/doc")
-    private DocumentDto createEmptyDocument () {
+    public DocumentDto createEmptyDocument () {
         return documentMapper.mapToDocumentDto(documentService.createEmptyDoc());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/doc", consumes = APPLICATION_JSON_VALUE)
-    private DocumentDto createDocument (@RequestBody DocumentDto documentDto) {
+    public DocumentDto createDocument (@RequestBody DocumentDto documentDto) {
         return documentMapper.mapToDocumentDto(documentService.createDocFromObject(documentMapper.mapToDocument(documentDto)));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/doc", consumes = APPLICATION_JSON_VALUE)
-    private DocumentDto updateDocument (@RequestBody DocumentDto documentDto) {
+    public DocumentDto updateDocument (@RequestBody DocumentDto documentDto) {
         return documentMapper.mapToDocumentDto(documentService.createDocFromObject(documentMapper.mapToDocument(documentDto)));
     }
 
