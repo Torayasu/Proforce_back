@@ -1,7 +1,7 @@
 package com.proforce.proforcecore.mapper;
 
-import com.proforce.proforcecore.scheduler.EventLog;
-import com.proforce.proforcecore.scheduler.EventLogDto;
+import com.proforce.proforcecore.domain.EventLog;
+import com.proforce.proforcecore.domain.EventLogDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

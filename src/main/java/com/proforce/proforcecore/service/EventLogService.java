@@ -2,7 +2,7 @@ package com.proforce.proforcecore.service;
 
 import com.proforce.proforcecore.exception.EventLogNotFound;
 import com.proforce.proforcecore.repository.EventLogRepository;
-import com.proforce.proforcecore.scheduler.EventLog;
+import com.proforce.proforcecore.domain.EventLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

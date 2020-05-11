@@ -1,8 +1,8 @@
 package com.proforce.proforcecore.exception;
 
-public class PDFNotFound extends RuntimeException{
+public class PdfNotFound extends RuntimeException{
 
-    public PDFNotFound() {
+    public PdfNotFound() {
         super("Pdf with given ID does not exist");
     }
 }

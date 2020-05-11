@@ -1,4 +1,4 @@
-package com.proforce.proforcecore.scheduler;
+package com.proforce.proforcecore.domain;
 
 
 import lombok.Getter;

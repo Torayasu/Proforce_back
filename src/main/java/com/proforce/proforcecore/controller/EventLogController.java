@@ -1,7 +1,7 @@
 package com.proforce.proforcecore.controller;
 
 import com.proforce.proforcecore.mapper.EventLogMapper;
-import com.proforce.proforcecore.scheduler.EventLogDto;
+import com.proforce.proforcecore.domain.EventLogDto;
 import com.proforce.proforcecore.service.EventLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

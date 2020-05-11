@@ -21,7 +21,7 @@ public class DocumentRepositoryTestSuite {
     private DocumentRepository documentRepository;
 
     @Autowired
-    private PDFRepository pdfRepository;
+    private PdfRepository pdfRepository;
 
     @Test
     public void testDocumentPartPDFIntegration() {

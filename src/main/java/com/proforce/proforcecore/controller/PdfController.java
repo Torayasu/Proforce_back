@@ -2,7 +2,7 @@ package com.proforce.proforcecore.controller;
 
 import com.proforce.proforcecore.domain.PdfDto;
 import com.proforce.proforcecore.mapper.PdfMapper;
-import com.proforce.proforcecore.service.PDFService;
+import com.proforce.proforcecore.service.PdfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +16,7 @@ public class PdfController {
     private static final String APPLICATION_JSON_VALUE = "application/json";
 
     @Autowired
-    private PDFService pdfService;
+    private PdfService pdfService;
 
     @Autowired
     private PdfMapper pdfMapper;

@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDate;
 
-public class DBStateUpdateScheduler {
+public class DbStateUpdateScheduler {
 
     @Autowired
     private EventLogService eventLogService;

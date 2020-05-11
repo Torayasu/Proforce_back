@@ -1,6 +1,6 @@
 package com.proforce.proforcecore.repository;
 
-import com.proforce.proforcecore.scheduler.EventLog;
+import com.proforce.proforcecore.domain.EventLog;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

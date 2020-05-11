@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Transactional
 @Repository
-public interface PDFRepository extends CrudRepository<Pdf, Long> {
+public interface PdfRepository extends CrudRepository<Pdf, Long> {
 
     @Override
     List<Pdf> findAll();
