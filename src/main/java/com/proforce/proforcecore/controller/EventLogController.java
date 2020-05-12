@@ -13,8 +13,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class EventLogController {
 
-    private static final String APPLICATION_JSON_VALUE = "application/json";
-
     @Autowired
     private EventLogService eventLogService;
 

@@ -20,6 +20,11 @@ public class DocumentService {
     @Autowired
     private DocumentRepository documentRepository;
 
+    public boolean checkIfDocExists(Long id) {
+        Optional<Document> resultDoc = documentRepository.findById(id);
+        return resultDoc.isPresent();
+    }
+
     public Document createEmptyDoc() {
         Pdf tmpPdf = new Pdf();
         List<Part> partList = new ArrayList<>();

@@ -2,11 +2,13 @@ package com.proforce.proforcecore.controller;
 
 import com.proforce.proforcecore.domain.DocumentDto;
 import com.proforce.proforcecore.exception.DocumentNotFound;
+import com.proforce.proforcecore.facade.DocAndPartFacade;
 import com.proforce.proforcecore.mapper.DocumentMapper;
 import com.proforce.proforcecore.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -15,6 +17,9 @@ import java.util.List;
 public class DocumentController {
 
     private static final String APPLICATION_JSON_VALUE = "application/json";
+
+    @Autowired
+    private DocAndPartFacade docAndPartFacade;
 
     @Autowired
     private DocumentService documentService;
@@ -28,8 +33,8 @@ public class DocumentController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/doc", consumes = APPLICATION_JSON_VALUE)
-    public DocumentDto createDocument (@RequestBody DocumentDto documentDto) {
-        return documentMapper.mapToDocumentDto(documentService.createDocFromObject(documentMapper.mapToDocument(documentDto)));
+    public DocumentDto createDocument (@RequestBody DocumentDto documentDto) throws UnsupportedEncodingException {
+        return documentMapper.mapToDocumentDto(docAndPartFacade.addDocument(documentMapper.mapToDocument(documentDto)));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/doc", consumes = APPLICATION_JSON_VALUE)

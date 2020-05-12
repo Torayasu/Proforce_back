@@ -1,10 +1,10 @@
 package com.proforce.proforcecore.client;
 
+import com.proforce.proforcecore.domain.ExpiryReminder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -40,9 +40,9 @@ public class TodoLyClientTestSuite {
     @Test
     public void addItem() {
 
-        ResponseEntity<String> result = todoLyClient.addItemToPAC();
+        ResponseEntity<String> result = todoLyClient.addReminderToList(new ExpiryReminder("22","2022-11-22"));
 
-        System.out.println(result.toString());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.proforce.proforcecore.controller;
 
+import com.proforce.proforcecore.domain.Pdf;
 import com.proforce.proforcecore.domain.PdfDto;
 import com.proforce.proforcecore.mapper.PdfMapper;
 import com.proforce.proforcecore.service.PdfService;
@@ -34,6 +35,11 @@ public class PdfController {
     @RequestMapping(method = RequestMethod.POST, value = "/pdf", consumes = APPLICATION_JSON_VALUE)
     private void addPdf(@RequestBody PdfDto pdfDto) {
         pdfService.addPdf(pdfMapper.mapToPdf(pdfDto));
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/pdf", consumes = APPLICATION_JSON_VALUE)
+    private PdfDto updatePdf(@RequestBody PdfDto pdfDto) {
+        return pdfMapper.mapToPdfDto(pdfService.updatePdf(pdfMapper.mapToPdf(pdfDto)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/pdf/{id}")

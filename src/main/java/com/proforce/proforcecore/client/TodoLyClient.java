@@ -1,6 +1,7 @@
 package com.proforce.proforcecore.client;
 
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
+import com.proforce.proforcecore.domain.ExpiryReminder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class TodoLyClient {
         return result;
     }
 
-    public ResponseEntity<String> addItemToPAC() {
+    public ResponseEntity<String> addReminderToList(ExpiryReminder expiryReminder) {
 
         URI url = UriComponentsBuilder.fromHttpUrl("https://todo.ly/api/item.json").encode().build().toUri();
 
@@ -56,7 +57,7 @@ public class TodoLyClient {
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
         Map<String, String> body = new HashMap<>();
-        body.put("Content", "TestTask");
+        body.put("Reminder", "Doc with Id " + expiryReminder.getDocId() + " will expire on " + expiryReminder.getMessage());
 
         HttpEntity<Map<String, String>> entity = new HttpEntity<>(body, headers);
 

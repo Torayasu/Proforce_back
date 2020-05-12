@@ -3,6 +3,7 @@ package com.proforce.proforcecore.controller;
 
 import com.proforce.proforcecore.domain.PartDto;
 import com.proforce.proforcecore.exception.PartNotFound;
+import com.proforce.proforcecore.facade.DocAndPartFacade;
 import com.proforce.proforcecore.mapper.PartMapper;
 import com.proforce.proforcecore.service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class PartController {
     private static final String APPLICATION_JSON_VALUE = "application/json";
 
     @Autowired
+    private DocAndPartFacade docAndPartFacade;
+
+    @Autowired
     private PartService partService;
 
     @Autowired
@@ -30,7 +34,7 @@ public class PartController {
 
     @RequestMapping(method = RequestMethod.POST, value="/part", consumes = APPLICATION_JSON_VALUE)
     public PartDto createPart(@RequestBody PartDto partDto) {
-        return partMapper.mapToPartDto(partService.createPartFromObject(partMapper.mapToPart(partDto)));
+        return partMapper.mapToPartDto(docAndPartFacade.addPartWithoutDocument(partMapper.mapToPart(partDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/part")

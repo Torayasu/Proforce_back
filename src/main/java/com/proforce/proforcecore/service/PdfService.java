@@ -6,6 +6,7 @@ import com.proforce.proforcecore.repository.PdfRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,19 @@ public class PdfService {
 
     public void addPdf(Pdf pdf) {
         pdfRepository.save(pdf);
+    }
+
+    public Pdf updatePdf(Pdf pdf) {
+
+        Optional<Pdf> resultPdf = pdfRepository.findById(pdf.getId());
+
+        if (resultPdf.isPresent()) {
+            pdfRepository.save(pdf);
+            return pdf;
+        } else {
+            throw new PdfNotFound();
+        }
+
     }
 
     public void deletePdfById(Long id) {
