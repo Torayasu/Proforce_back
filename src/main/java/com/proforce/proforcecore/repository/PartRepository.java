@@ -26,4 +26,7 @@ public interface PartRepository extends CrudRepository<Part, Long> {
 
     List<Part> findAllByType(String type);
 
+    @Override
+    boolean existsById(Long id);
+
 }

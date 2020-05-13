@@ -34,8 +34,8 @@ public class PartService {
 
     public boolean checkIfPartExists(Long id) {
 
-        Optional<Part> resultPart = partRepository.findById(id);
-        return resultPart.isPresent();
+        return partRepository.existsById(id);
+
     }
 
     public Part createPartFromObject(Part part) {
@@ -62,18 +62,6 @@ public class PartService {
 
     public List<Part> getAllPartsByType(String type) {
         return partRepository.findAllByType(type);
-    }
-
-    public Part getPart(Long id) {
-
-        Optional<Part> retrievedPart = partRepository.findById(id);
-
-        if (retrievedPart.isPresent()) {
-            return retrievedPart.get();
-        } else {
-            throw new PartNotFound();
-        }
-
     }
 
     public void deletePart(Long id) {

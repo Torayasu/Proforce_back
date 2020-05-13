@@ -1,15 +1,11 @@
 package com.proforce.proforcecore.client;
 
-import com.proforce.proforcecore.domain.Document;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
-import software.amazon.awssdk.auth.credentials.SystemPropertyCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-
-import javax.print.Doc;
 
 @Service
 public class S3CustomClient {
@@ -26,10 +22,6 @@ public class S3CustomClient {
 
     private S3CustomClient(S3Client s3Client) {
         this.s3Client = s3Client;
-    }
-
-    public S3Client getS3Client() {
-        return s3Client;
     }
 
     public void uploadFile(String docBody) {

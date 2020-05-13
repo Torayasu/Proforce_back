@@ -31,11 +31,9 @@ public class EventLogService {
 
     }
 
-    public void addEventLog(String name, String desc) {
+    public EventLog addEventLog(EventLog eventLog) {
 
-        EventLog newEventLog = new EventLog(name, desc);
-
-        repository.save(newEventLog);
+        return repository.save(eventLog);
 
     }
 

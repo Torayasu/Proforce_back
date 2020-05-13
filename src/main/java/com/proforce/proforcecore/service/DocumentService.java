@@ -28,7 +28,7 @@ public class DocumentService {
     public Document createEmptyDoc() {
         Pdf tmpPdf = new Pdf();
         List<Part> partList = new ArrayList<>();
-        Document newDoc = new Document("","","", LocalDate.now().plusYears(999),tmpPdf);
+        Document newDoc = new Document("","","", LocalDate.now(),tmpPdf);
         return documentRepository.save(newDoc);
 
     }
@@ -37,11 +37,11 @@ public class DocumentService {
         return documentRepository.save(document);
     }
 
-    public void updateDocument(Document document) {
+    public Document updateDocument(Document document) {
         Optional<Document> docToBeUpdated = documentRepository.findById(document.getId());
 
         if (docToBeUpdated.isPresent()) {
-            documentRepository.save(document);
+            return documentRepository.save(document);
         } else {
             throw new DocumentNotFound();
         }
@@ -64,14 +64,6 @@ public class DocumentService {
 
     public List<Document> getAllDocsByType(String type) {
         return documentRepository.findAllByType(type);
-    }
-
-    public List<Document> getAllDocsByManufacturer(String manufacturer) {
-        return documentRepository.findAllByManufacturer(manufacturer);
-    }
-
-    public List<Document> getAllDocsByName(String name) {
-        return documentRepository.findAllByName(name);
     }
 
 }

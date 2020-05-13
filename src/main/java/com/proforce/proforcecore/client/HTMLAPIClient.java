@@ -1,7 +1,5 @@
 package com.proforce.proforcecore.client;
 
-import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
-import com.proforce.proforcecore.config.CoreConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -13,7 +11,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 @Service

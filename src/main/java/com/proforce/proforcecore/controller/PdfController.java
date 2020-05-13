@@ -33,8 +33,8 @@ public class PdfController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/pdf", consumes = APPLICATION_JSON_VALUE)
-    private void addPdf(@RequestBody PdfDto pdfDto) {
-        pdfService.addPdf(pdfMapper.mapToPdf(pdfDto));
+    private PdfDto addPdf(@RequestBody PdfDto pdfDto) {
+        return pdfMapper.mapToPdfDto(pdfService.addPdf(pdfMapper.mapToPdf(pdfDto)));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pdf", consumes = APPLICATION_JSON_VALUE)
@@ -46,23 +46,5 @@ public class PdfController {
     private void deletePdfById(@PathVariable Long id) {
         pdfService.deletePdfById(id);
     }
-
-
-    /*
-
-    @RequestMapping(method = RequestMethod.DELETE, value = "/part/{partId}")
-    private void deletePart(@PathVariable Long partId) throws PartNotFound {
-        partService.deletePart(partId);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "/part")
-    private PartDto updatePart(@RequestBody PartDto partDto) throws PartNotFound {
-        return partMapper.mapToPartDto(partService.updatePart(partMapper.mapToPart(partDto)));
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/part/{type}")
-    private List<PartDto> getPartsByType(@PathVariable String type) {
-        return partMapper.mapToPartDtoList(partService.getAllPartsByType(type));
-    }*/
 
 }

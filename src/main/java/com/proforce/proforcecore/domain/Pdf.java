@@ -16,7 +16,7 @@ public class Pdf {
     @NotNull
     private long id;
 
-    private String url;
+    private String url = "";
 
     public Pdf(String url) {
         this.url = url;

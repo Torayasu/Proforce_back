@@ -1,6 +1,7 @@
 package com.proforce.proforcecore.scheduler;
 
 import com.proforce.proforcecore.domain.Document;
+import com.proforce.proforcecore.domain.EventLog;
 import com.proforce.proforcecore.repository.DocumentRepository;
 import com.proforce.proforcecore.repository.PartRepository;
 import com.proforce.proforcecore.service.EventLogService;
@@ -27,7 +28,7 @@ public class DbStateUpdateScheduler {
         String desc = "Document DB has " + documentRepository.count() + " records." + "\n" +
                 "Part DB has " + partRepository.count() + " records." ;
 
-        eventLogService.addEventLog(name, desc);
+        eventLogService.addEventLog(new EventLog(name, desc));
 
     }
 }

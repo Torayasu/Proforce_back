@@ -8,11 +8,12 @@ import com.proforce.proforcecore.service.DocumentService;
 import com.proforce.proforcecore.service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
 
 import java.io.UnsupportedEncodingException;
 
-@Service
+@Component
 public class DocAndPartFacade {
 
     @Autowired

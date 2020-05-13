@@ -39,7 +39,7 @@ public class DocumentController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/doc", consumes = APPLICATION_JSON_VALUE)
     public DocumentDto updateDocument (@RequestBody DocumentDto documentDto) {
-        return documentMapper.mapToDocumentDto(documentService.createDocFromObject(documentMapper.mapToDocument(documentDto)));
+        return documentMapper.mapToDocumentDto(documentService.updateDocument(documentMapper.mapToDocument(documentDto)));
     }
 
 

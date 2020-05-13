@@ -18,4 +18,9 @@ public interface PdfRepository extends CrudRepository<Pdf, Long> {
     @Override
     Optional<Pdf> findById(Long id);
 
+    @Override
+    boolean existsById(Long id);
+
+
+
 }

@@ -55,8 +55,8 @@ public class PartRepositoryTestSuite {
         partRepository.deleteAll(partList);
 
         assertFalse(partRepository.existsById(partList.get(0).getId()));
-        assertFalse(partRepository.existsById(partList.get(0).getId()));
-        assertFalse(partRepository.existsById(partList.get(0).getId()));
+        assertFalse(partRepository.existsById(partList.get(1).getId()));
+        assertFalse(partRepository.existsById(partList.get(2).getId()));
 
     }
 }

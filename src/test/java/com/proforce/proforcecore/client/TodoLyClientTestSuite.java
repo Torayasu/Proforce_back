@@ -37,12 +37,5 @@ public class TodoLyClientTestSuite {
 
     }
 
-    @Test
-    public void addItem() {
-
-        ResponseEntity<String> result = todoLyClient.addReminderToList(new ExpiryReminder("22","2022-11-22"));
-
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-    }
 
 }

@@ -15,14 +15,14 @@ import java.util.List;
 public class Document {
 
     public static final String TYPE_COC = "Certificate of conformity";
-    static final String TYPE_DOC = "Declaration of conformity";
-    static final String TYPE_COC_RUS = "Certificate of Conformity CUTR";
-    static final String TYPE_DOC_RUS = "Declaration of conformity CUTR";
-    static final String TYPE_LOE_RUS = "Letter of Exemption CUTR";
-    static final String TYPE_CERT_OTHER = "General Certificate";
-    static final String TYPE_TEST_REP = "Test Report";
-    static final String TYPE_DS = "Datasheet";
-    static final String TYPE_OM = "Operation and Maintenance Manual";
+    public static final String TYPE_DOC = "Declaration of conformity";
+    public static final String TYPE_COC_RUS = "Certificate of Conformity CUTR";
+    public static final String TYPE_DOC_RUS = "Declaration of conformity CUTR";
+    public static final String TYPE_LOE_RUS = "Letter of Exemption CUTR";
+    public static final String TYPE_CERT_OTHER = "General Certificate";
+    public static final String TYPE_TEST_REP = "Test Report";
+    public static final String TYPE_DS = "Datasheet";
+    public static final String TYPE_OM = "Operation and Maintenance Manual";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
