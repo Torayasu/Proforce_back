@@ -10,7 +10,7 @@ The main concept is to get a template based engine that allows for easy maniupla
 Currently, the Proforce app is in it's very early stages. It will be developed further as a hobby.
 
 ###How to run it ?
-In order to run the bakend layer, copy the repo and run the gradle wrapper. You will need to modify "application.properties" with your database logon data. If you using anything else than Postgresql, you will also need to modify the build.gradle file accordingly.
+In order to run the backend layer, copy the repo and run the gradle wrapper. You will need to modify "application.properties" with your database logon data. If you using anything else than Postgresql, you will also need to modify the build.gradle file accordingly.
 The back end is currently running on Heroku, under the following adress: http://proforce.herokuapp.com
 
 ###Where is the front ?
